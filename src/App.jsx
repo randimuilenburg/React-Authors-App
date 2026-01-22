@@ -6,6 +6,7 @@ function App() {
     <div>
       <Navbar />
       <AppRoutes />
+      {/* <h1>RENDERS</h1> */}
     </div>
   );
 }
