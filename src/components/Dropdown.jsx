@@ -1,21 +1,28 @@
 import { Dropdown } from "react-bootstrap";
-import React, { useState } from "react";
-// import AuthorData from "./AuthorData";
+import react, { useState } from "react";
 
-function AuthorDropdown({}) {
+const AuthorDropdown = ({ authors }) => {
+  const [selectedAuthor, setSelectedAuthor] = useState(null);
   return (
-    <Dropdown>
-      <Dropdown.Toggle variant="clear" id="dropdown-basic">
-        Select an author:
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        {/* <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}
-      </Dropdown.Menu>
-    </Dropdown>
+    <div className="dropdown">
+      <Dropdown>
+        <Dropdown.Toggle variant="clear" id="dropdown-basic">
+          {selectedAuthor ? selectedAuthor.authorName : "Select an author:"}
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          {authors.map((author) => (
+            <Dropdown.Item
+              // href={author.authorName}
+              key={author.authorId ?? author.authorName}
+              onClick={() => setSelectedAuthor(author)}
+            >
+              {author.authorName}
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
   );
-}
+};
 
 export default AuthorDropdown;

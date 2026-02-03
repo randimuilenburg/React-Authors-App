@@ -1,9 +1,10 @@
 import { Routes, Route, Link } from "react-router-dom";
 import AboutPage from "./AboutPage";
 import Header from "./Header";
-import Dropdown from "./Dropdown";
+import AuthorDropdown from "./Dropdown";
 import Criteria from "./CriteriaPage";
 import CaseStudyPage from "./CaseStudyPage";
+import authorData from "../data/AuthorData";
 
 export default function AppRoutes() {
   return (
@@ -14,7 +15,7 @@ export default function AppRoutes() {
           element={
             <>
               <Header />
-              <Dropdown />
+              <AuthorDropdown authors={authorData} />
             </>
           }
         />
